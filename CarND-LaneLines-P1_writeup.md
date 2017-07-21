@@ -1,4 +1,5 @@
-**Self Driving Car ND Project 1 - Finding Lane Lines on the Road**
+# Self Driving Car ND Project 1 - Finding Lane Lines on the Road
+---
 
 The goals / steps of this project are outlined below:
 
@@ -83,12 +84,15 @@ Solid Yellow Left Output:
 
 ![Solid Yellow Left Output][solid_yellow_output]
 
-### 2. Identify potential shortcomings with your current pipeline
+
+## Identify potential shortcomings with your current pipeline
+---
 
 As previously mentioned one of the shortcomings of this pipeline is the fact that the vertices for image masking are hardcoded and not mathematically calculated or referenced to the incoming images or video frames.  This instantly broke on the Challenge video as it has overall larger resolution in x and y.
 
 Another shortcoming is that my pipeline does not support color recognition of any kind.  It didn't seem to make a big difference on the two test videos required for this project, but I imagine it would be nice to find the lines and also identify their color.  In addition to this maybe my pipeline is susceptible to error when road colors changes like in the challenge video there's a transition from asphalt to concrete.
 
-### 3. Suggest possible improvements to your pipeline
+## Suggest possible improvements to your pipeline
+---
 
 As mentioned above a big improvement could be to constrain the masking shape mathematically to the incoming image or video frame shapes.  I'd also like to look at adding color detection to help mask unwanted pixels that are not in a specified range of yellows or whites. Finally, darkening the image during the day time might help with color and line sensitivity over the lighter concrete road sections.
