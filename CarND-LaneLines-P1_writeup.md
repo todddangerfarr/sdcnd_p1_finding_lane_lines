@@ -1,4 +1,5 @@
-# Self Driving Car ND Project 1 - Finding Lane Lines on the Road
+## Self Driving Car ND Project 1 - Finding Lane Lines on the Road
+
 ---
 
 The goals / steps of this project are outlined below:
@@ -24,6 +25,7 @@ The goals / steps of this project are outlined below:
 ---
 
 ## Reflection
+
 ---
 
 For this project the pipeline was built from the following 5 steps:
@@ -44,7 +46,7 @@ The next step ended up being out of order from my pipeline but proved to be impo
 
 ![Masking Vertices Test][masking_vertices]
 
-In hindsight, these are simply hardcoded values and probably one of the weakest components in my pipeline as it requires the same camera mounting location and image resolution across all vehicles.  To improve this I'd try to build a set of vertices from a mathematical algorithm based on incoming image properties.
+In hindsight, these were originally hardcoded values and probably one of the weakest components in my pipeline as it requires the similar camera mounting locations and image resolution across all vehicles.  It instantly broke when I tried run my pipeline on the challenge video. To improve this I did end up  adding hardcoded multipliers that at least take into account the incoming image dimensions, but I still feel this can be improved.  
 
 After the vertices were establish, the next step was to test and tune the Canny Edge Detection algorithm.  There are two main input variables for this algorithm: the lower and upper threshold values.  These determine which gradient values are returned in the output image and can range from 0-255.  For this I iterated the lower threshold value from 10 to 80 by steps of 10 and then calculated the upper threshold based on this value by using two industry rules of thumb: 2X and 3X this lower threshold value.  My results were as follows:
 
@@ -86,13 +88,17 @@ Solid Yellow Left Output:
 
 
 ## Identify potential shortcomings with your current pipeline
+
 ---
 
-As previously mentioned one of the shortcomings of this pipeline is the fact that the vertices for image masking are hardcoded and not mathematically calculated or referenced to the incoming images or video frames.  This instantly broke on the Challenge video as it has overall larger resolution in x and y.
+The biggest shortcoming is that this pipeline will really only detect straight line lines, which makes it more ideal for these highway videos.  However, there will definitely be problems with winding and tight curved roads.  
 
-Another shortcoming is that my pipeline does not support color recognition of any kind.  It didn't seem to make a big difference on the two test videos required for this project, but I imagine it would be nice to find the lines and also identify their color.  In addition to this maybe my pipeline is susceptible to error when road colors changes like in the challenge video there's a transition from asphalt to concrete.
+There will also be problems with steep or undulating road conditions as the region of interest is calculated from the image frame dimensions and not dynamically scaled via references in the images.   
+
+Another shortcoming is that my original pipeline did not support color recognition of any kind.  It didn't seem to make a big difference on the two test videos required for this project, but on the challenge video the transitions from asphalt to concrete and changing lighting conditions did cause a lot of problems.  I later had to add color masking to the pipeline for the challenge video which helped a lot with these transitions but is still not perfect.  
 
 ## Suggest possible improvements to your pipeline
+
 ---
 
-As mentioned above a big improvement could be to constrain the masking shape mathematically to the incoming image or video frame shapes.  I'd also like to look at adding color detection to help mask unwanted pixels that are not in a specified range of yellows or whites. Finally, darkening the image during the day time might help with color and line sensitivity over the lighter concrete road sections.
+I did end up adding color detection later to help with the challenge video and that proved to be a value add feature.  In addition, if this were a real world application we'd want to do much more regression testing and iterations of our parameters to really fine tune our detection algorithm variables for multiple road/lighting conditions and incoming video feeds. Lastly it would be helpful to reference our masking conditions to a detected horizon reference in the image so that we could shorten or elongate it with changing road inclines.  
