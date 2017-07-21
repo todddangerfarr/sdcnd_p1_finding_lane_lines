@@ -9,7 +9,7 @@ The goals / steps of this project are outlined below:
 [//]: # (Image References)
 
 [image1]: ./examples/grayscale.jpg "Grayscale"
-[gaussian_test]: ./writeup_images/gaussian_blur_test.png "Gaussian Blur Study"
+[gaussian_test]: ./writeup_images/gaussian_blur_study.png "Gaussian Blur Study"
 [masking_vertices]: ./writeup_images/masking_vertices_check.png "Masking"
 [canny_threshold_study]: ./writeup_images/canny_threshold_study.png "Canny"
 [hough_lines_study]: ./writeup_images/hough_lines_study.png "Hough Lines"
@@ -17,7 +17,7 @@ The goals / steps of this project are outlined below:
 [pipeline_images_test]: ./writeup_images/finding_lines_test.png "Pipeline Images Test"
 [extrapolated_lines_test]: ./writeup_images/pipeline_test_extrapolate.png "Extrapolated Lines Test"
 
-[sold_white_output]: ./writeup_images/solid_white_output.gif "Solid White Output"
+[solid_white_output]: ./writeup_images/solid_white_output.gif "Solid White Output"
 [solid_yellow_output]: ./writeup_images/solid_yellow_output.gif "Solid Yellow Output"
 
 ---
@@ -76,9 +76,11 @@ After each of the line segment points were separated into their respective lists
 Finally the pipeline was applied to the videos.
 
 Solid White Right Output:
+
 ![Solid White Right Output][solid_white_output]
 
 Solid Yellow Left Output:
+
 ![Solid Yellow Left Output][solid_yellow_output]
 
 ### 2. Identify potential shortcomings with your current pipeline
