@@ -91,7 +91,7 @@ Solid Yellow Left Output:
 
 ---
 
-The biggest shortcoming is that this pipeline will really only detect straight line lines, which makes it more ideal for these highway videos.  However, there will definitely be problems with winding and tight curved roads.  
+The biggest shortcoming is that this pipeline will really only detect "straight-ish" lane lines, which makes it more ideal for these highway videos.  However, there will definitely be problems with winding and tightly curved roads.  
 
 There will also be problems with steep or undulating road conditions as the region of interest is calculated from the image frame dimensions and not dynamically scaled via references in the images.   
 
@@ -101,4 +101,4 @@ Another shortcoming is that my original pipeline did not support color recogniti
 
 ---
 
-I did end up adding color detection later to help with the challenge video and that proved to be a value add feature.  In addition, if this were a real world application we'd want to do much more regression testing and iterations of our parameters to really fine tune our detection algorithm variables for multiple road/lighting conditions and incoming video feeds. Lastly it would be helpful to reference our masking conditions to a detected horizon reference in the image so that we could shorten or elongate it with changing road inclines.  
+If this were a real world application we'd want to do much more regression testing and iterations of our parameters to really fine tune our detection algorithm variables for multiple road/lighting conditions and incoming video feeds. Lastly it would be helpful to reference our masking conditions to a detected horizon reference in the image so that we could shorten or elongate the mask with changing road inclines.  
